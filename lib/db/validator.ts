@@ -2,9 +2,9 @@ import z from 'zod'
 import { formatNumberWithDecimal } from '../utils'
 
 // Common
-const MongoId = z
-  .string()
-  .regex(/^[0-9a-fA-F]{24}$/, { message: 'Invalid MongoDB ID' })
+// const MongoId = z
+//   .string()
+//   .regex(/^[0-9a-fA-F]{24}$/, { message: 'Invalid MongoDB ID' })
 
 const Price = (field: string) =>
   z.coerce

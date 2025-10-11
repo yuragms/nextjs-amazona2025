@@ -58,7 +58,7 @@ export default async function Page() {
     },
   ]
 
-  const todaysDeals = await getProductsByTag({ tag: 'today-deal' })
+  const todaysDeals = await getProductsByTag({ tag: 'todays-deal' })
 
   return (
     <>

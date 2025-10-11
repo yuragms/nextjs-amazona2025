@@ -46,19 +46,12 @@ export async function getProductsByTag({
   tag: string
   limit?: number
 }) {
-  try {
-    await connectToDatabase()
-    const products = await Product.find({
-      tags: { $in: [tag] },
-      isPublished: true,
-    })
-      .sort({ createdAt: 'desc' })
-      .limit(limit)
-    console.log('getProductsByTag works', products)
-    console.log('Searching for tag:', tag)
-    return JSON.parse(JSON.stringify(products)) as IProduct[]
-  } catch (error) {
-    console.error('Error in getProductsByTag:', error)
-    return [] // ← ДОБАВИТЬ ЭТО!
-  }
+  await connectToDatabase()
+  const products = await Product.find({
+    tags: { $in: [tag] },
+    isPublished: true,
+  })
+    .sort({ createdAt: 'desc' })
+    .limit(limit)
+  return JSON.parse(JSON.stringify(products)) as IProduct[]
 }
